@@ -1,0 +1,379 @@
+/* MapMarker.css */
+
+.species-pin {
+  position: relative;
+  width: 32px;
+  height: 42px;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.species-pin.pin-hovered {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  z-index: 1000;
+}
+
+.species-pin.pin-active {
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.4));
+}
+
+/* Radar effect for hovered pins */
+.pin-radar-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid;
+  border-radius: 50%;
+  animation: radarPulse 2s infinite;
+  opacity: 0.6;
+}
+
+.pin-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: glowPulse 1.5s infinite;
+}
+
+.pin-main {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: #6b7280;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+.pin-hovered .pin-main {
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.pin-emoji {
+  transform: rotate(45deg);
+  font-size: 14px;
+  user-select: none;
+  filter: brightness(0) invert(1);
+}
+
+.pin-stem {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 12px;
+  background: #6b7280;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-radius: 0 0 2px 2px;
+  z-index: 9;
+}
+
+/* Marker container */
+.marker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.distance-label {
+  margin-top: 8px;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+/* Species Preview Popup */
+.species-preview {
+  width: 320px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.preview-header {
+  padding: 20px 20px 16px;
+  color: white;
+  position: relative;
+}
+
+.preview-header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.preview-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.preview-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.preview-content {
+  padding: 20px;
+}
+
+.preview-image {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.status-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.preview-description {
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.preview-description p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #4b5563;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 10px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Map Legend */
+.map-legend {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border: 1px solid #e5e7eb;
+  min-width: 200px;
+}
+
+.map-legend h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.legend-item span:last-child {
+  font-size: 12px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+/* No markers state */
+.no-markers {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.no-markers-content {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.no-markers-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.no-markers p {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.no-markers small {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Animations */
+@keyframes radarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Popup customization */
+.species-popup .mapboxgl-popup-content {
+  background: transparent;
+  border-radius: 16px;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.species-popup .mapboxgl-popup-tip {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .species-preview {
+    width: 280px;
+  }
+  
+  .preview-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-legend {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+  }
+}

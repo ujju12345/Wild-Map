@@ -1,0 +1,287 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.registerCard {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.registerHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.logoIcon {
+  font-size: 28px;
+  color: #667eea;
+}
+
+.registerSubtitle {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Cancel Button */
+.registerCancel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  color: #999;
+  padding: 4px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  font-size: 20px;
+}
+
+.registerCancel:hover {
+  color: #ff4757;
+  background: #fff5f5;
+}
+
+/* Form */
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.inputGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+}
+
+.inputGroup input:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.inputGroup input:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+/* Password Input */
+.passwordInputContainer {
+  position: relative;
+  width: 100%;
+}
+
+.passwordInputContainer input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+.registerBtn {
+  width: 100%;
+  padding: 12px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.registerBtn:hover:not(:disabled) {
+  background: #5a6fd8;
+}
+
+.registerBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.registerBtn.success {
+  background: #48bb78;
+}
+
+/* Messages */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  color: #e53e3e;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f0f9f0;
+  border: 1px solid #c6f6d5;
+  border-radius: 8px;
+  color: #2d7d32;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Footer */
+.registerFooter {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.divider {
+  position: relative;
+  margin: 16px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e1e5e9;
+}
+
+.divider span {
+  background: white;
+  padding: 0 12px;
+  position: relative;
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  color: #667eea;
+  border: 1.5px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loginBtn:hover:not(:disabled) {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.loginBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .registerContainer {
+    padding: 16px;
+  }
+  
+  .registerCard {
+    padding: 24px 20px;
+  }
+  
+  .logo {
+    font-size: 22px;
+  }
+  
+  .logoIcon {
+    font-size: 26px;
+  }
+}
